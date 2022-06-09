@@ -1,6 +1,5 @@
 package member.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,7 +33,6 @@ public class MemberDAOImpl implements IMemberDAO{
 		}else {
 			sqlSession.rollback();
 		}
-		
 		return cnt;
 	}
 
@@ -47,7 +45,6 @@ public class MemberDAOImpl implements IMemberDAO{
 		}else {
 			sqlSession.rollback();
 		}
-		
 		return cnt;
 	}
 
@@ -60,7 +57,6 @@ public class MemberDAOImpl implements IMemberDAO{
 		}else {
 			sqlSession.rollback();
 		}
-		
 		return cnt;
 	}
 
