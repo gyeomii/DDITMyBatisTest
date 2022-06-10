@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import board.vo.BoardVO;
-import util.MyBatisUtil2;
+import util.MyBatisUtilGyeom;
 
 
 public class BoardDaoImpl implements IBoardDao {
@@ -13,7 +13,7 @@ public class BoardDaoImpl implements IBoardDao {
 	private static IBoardDao boardDao;
 	private SqlSession sqlSession;
 	private BoardDaoImpl() {
-		sqlSession = MyBatisUtil2.getInstance();
+		sqlSession = MyBatisUtilGyeom.getInstance();
 	}
 
 	public static IBoardDao getInstance() {

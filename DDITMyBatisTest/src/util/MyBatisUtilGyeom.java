@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class MyBatisUtil2 {
+public class MyBatisUtilGyeom {
 	private static SqlSessionFactory sessionFactory;
 	
 	static {
@@ -21,7 +21,7 @@ public class MyBatisUtil2 {
 			// 설정파일의 인코딩 설정
 			Charset charset = Charset.forName("UTF-8");
 			Resources.setCharset(charset);
-			Reader rd = Resources.getResourceAsReader("mybatis-config2.xml");
+			Reader rd = Resources.getResourceAsReader("Gyeom-mybatis-config.xml");
 
 			// 1-2. 위에서 읽어온 Reader객체를 이용하여 실제 작업을 진행할 객체를 생성하기
 			sessionFactory = new SqlSessionFactoryBuilder().build(rd);

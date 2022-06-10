@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="db2.properties" />
+	<properties resource="dbGyeom.properties" />
 	
 	<settings>
 		<!-- DB컬럼명을 camel표기법으로 속성명과 자동 매핑하도록 설정 -->
