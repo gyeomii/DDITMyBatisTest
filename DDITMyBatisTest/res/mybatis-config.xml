@@ -10,8 +10,12 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	
-	<typeAliases>
+<!-- 	<typeAliases>
 		<typeAlias type="member.vo.MemberVO" alias="memVO"/>
+	</typeAliases> -->
+	
+	<typeAliases>
+		<typeAlias type="board.vo.BoardVO" alias="boardVO"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -28,6 +32,7 @@
 	
 	<mappers>
 		<mapper resource="mapper/member.xml"/>
+		<mapper resource="mapper/board.xml"/>
 	</mappers>
 	
 </configuration>
