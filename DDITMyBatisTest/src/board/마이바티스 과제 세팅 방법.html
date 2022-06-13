@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/outStyle.css">
+</head>
+<body>
+
+	<h4>MyBatis 게시판 과제 셋팅</h4>
+	<pre>
+		어떻게 될지 모르니깐 jar파일 3개다 가지고 와서 build path해서 jar값 추가해줌
+		
+	*res 폴더*
+
+	- 마이바티스 유틸 설정 : 마이바티스-config.xml을 값을 읽어올 수 있도록 입력한 값 가져오기
+	- mybatis-config.xml 에서 데이터 설정
+		ㄴ properties 자원을 db.properties에서 드라이버 값 및 호스트, 아이디 비번 값 가져오기
+		ㄴ mapUnderscoreToCamelCase - > DB 컬럼 값의 (_)를 카멜케이스(낙타표기법)으로 설정하기
+		ㄴ logging을 설정해주기 위해 LogImpl라는 객체를 가져와 주기.
+		ㄴ type은 내가 실행할 게시판의 데이터를 담을 장소로 저장해주기
+		ㄴ 이 외의 설정값은 동일하게
+		ㄴ ** 중요! mapper : DB에서 실행될 수 있는 쿼리문(SQL문)을 담고 있는 xml파일의 경로 설정해주기
+				= 이걸 해주지 않으면 쿼리문을 찾지 못해 실행하기 못할듯??
+	-mapper
+	 ㄴ mapper 패키지를 만들고 이 안에 sql문(쿼리문)을 담을 xml 파일들을 저장한다.
+	 ㄴ board.xml : src에 있는 Board라는 클래스를 실행하였을때 DB의 데이터 값들을 실행해줄 쿼리문 저장할 장소;
+	 				(쿼리문을 다른 파일로 나눠나야 유지보수에 좋은 것 같음. 오류 및 수정에 용이)
+	 	ㄴ mapper의 **namespace는 board 클래스에서 마이바티스를 통해 쿼리문 실행할 수 있도록 하는 설정 경로의 기초값
+	 				= insert / select 등은 또 id라는 값으로 이름 설정해주면됨		
+	 	ㄴ 각 쿼리문은 이미 만들어 놓은 DAOImpl 객체에서 가져와주면 된다
+	 		** "" , ; + 등 특수기호는 모두 삭제해줘야 오류를 불러오지 않는다.
+	 	ㄴ 수업때한 member.xml을 보면서 어떻게 입력해줘야하는지 공부하면서 수정하면됨
+	 	ㄴ 자세한 내용들은 안에 들어가면 설명되어 있음.
+	 	
+	 -db.properties는 자신의 DB 연결 데이터로 입력. 되어 있으면 수정 X
+	 
+	 -log4j.properties (log4j를 사용해보고 싶으면 넣으새요.)
+	 	 ㄴ log4j.rootLogger=DEBUG, stdout(ID 값 같은 것 같음. 잘모름) 
+	 	 					(로그 레벨 default 값 설정)
+	 	 					
+	 	 						각각의 행동 및 실행 과정에서 logging의 제한을 걸어줄때 밑에 사용
+	 	 log4j.logger.log4jexam.sql.Query = INFO	
+		#log4j.logger.log4jexam.sql.Parameter = INFO
+		#log4j.logger.kr.or.ddit.T05MemberInfoTest = INFO
+	
+	** 마이바티스만 실행하기 위해서는 DAO, Service 객체가 필요 없지만
+	    마이바티스 + MVC 패턴을 적용시키기 위해서 DAO 및 Service를 사용함.
+	    
+	    !마이바티스만 적용해보고 싶다면
+	     Board클래스에서 바로 sqlSession.getInstace()을 가져와서 sqlSession에 담아주고
+	    sqlSession.insert("sql문을 저장해 놓은 xml파일 namespace 및 id 값", 전달 및 받아올 객체 및 데이터 값); 을 실행해주면됨
+	
+
+</pre>
+</body>
+</html>
