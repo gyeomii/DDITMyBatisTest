@@ -18,6 +18,7 @@ public class boardController {
 
 	// 프로그램 시작
 	public void start() {
+		welcome();
 		displayMenu();
 
 		while (isOn) {
@@ -46,11 +47,13 @@ public class boardController {
 			}
 		}
 	}
-
-	private void displayMenu() {
+	private void welcome() {
 		System.out.println("          ************************          ");
 		System.out.println("           WELCOME TO GYEOMII.LOG           ");
 		System.out.println("          ************************          ");
+	}
+	
+	private void displayMenu() {
 		System.out.println("--------------------------------------------");
 		System.out.println("          어떤 업무를 하시겠습니까?         ");
 		System.out.println("        1.전체목록 2.새글작성 3.수정        ");
@@ -76,6 +79,7 @@ public class boardController {
 			System.out.println("=================================================");
 		}
 		System.out.println("출력작업 끝");
+		displayMenu();
 	}
 
 	// 게시글 삽입
@@ -101,18 +105,19 @@ public class boardController {
 		} else {
 			System.out.println("게시글 작성 실패");
 		}
+		displayMenu();
 	}
 
 	// 게시글 수정
 	private void editPost() {
 		boolean chk = false;
-		String boardNo = null;
+		int boardNo = 0;
 		scanner.nextLine();
 		displayAllPost();
 		do {
 			System.out.println("수정할 게시글 번호를 입력하세요.");
 			System.out.print("게시글 번호 >> ");
-			boardNo = scanner.nextLine();
+			boardNo = Integer.parseInt(scanner.nextLine());
 
 			chk = boardService.checkBoard(boardNo);
 
@@ -141,18 +146,19 @@ public class boardController {
 		} else {
 			System.out.println(boardNo + "번 게시글 수정 작업 실패");
 		}
+		displayMenu();
 	}
 
 	// 게시글 삭제
 	private void deletePost() {
 		boolean chk = false;
-		String boardNo = null;
+		int boardNo = 0;
 		displayAllPost();
 		scanner.nextLine();
 		do {
 			System.out.println("삭제할 게시글 번호를 입력하세요.");
 			System.out.print("게시글 번호 >> ");
-			boardNo = scanner.nextLine();
+			boardNo = Integer.parseInt(scanner.nextLine());
 
 			chk = boardService.checkBoard(boardNo);
 
@@ -170,6 +176,7 @@ public class boardController {
 		} else {
 			System.out.println(boardNo + "번 게시글 삭제 작업 실패");
 		}
+		displayMenu();
 	}
 
 	// 게시글 검색
@@ -206,6 +213,7 @@ public class boardController {
 			System.out.println("=================================================");
 		}
 		System.out.println("출력작업 끝");
+		displayMenu();
 	}
 
 	// 종료

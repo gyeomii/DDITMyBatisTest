@@ -34,7 +34,7 @@ public class BoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public int deletePost(String boardNo) {
+	public int deletePost(int boardNo) {
 		int cnt = boardDao.deletePost(boardNo);
 		return cnt;
 	}
@@ -52,7 +52,7 @@ public class BoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public boolean checkBoard(String boardNo) {
+	public boolean checkBoard(int boardNo) {
 		boolean chk = boardDao.checkBoard(boardNo);
 		return chk;
 	}

@@ -43,7 +43,7 @@ public class BoardDaoImpl implements IBoardDao {
 	}
 
 	@Override
-	public int deletePost(String boardNo) {
+	public int deletePost(int boardNo) {
 		int cnt = sqlSession.delete("board.deletePost", boardNo);
 		
 		if(cnt > 0) {
@@ -76,7 +76,7 @@ public class BoardDaoImpl implements IBoardDao {
 	}
 
 	@Override
-	public boolean checkBoard(String boardNo) {
+	public boolean checkBoard(int boardNo) {
 		boolean chk = false;
 		int cnt = (int) sqlSession.selectOne("board.checkPost",boardNo);
 		if(cnt > 0) {

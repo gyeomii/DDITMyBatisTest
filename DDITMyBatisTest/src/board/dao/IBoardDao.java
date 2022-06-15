@@ -32,7 +32,7 @@ public interface IBoardDao {
 	 * @param boardNo 삭제할 게시글NO
 	 * @return 작업성공 : 1, 작업 실패 : 0
 	 */
-	public int deletePost(String boardNo);
+	public int deletePost(int boardNo);
 	
 	/**
 	 * 하나의 게시글 정보를 이용하여 DB를 업데이트 하는 메서드
@@ -56,6 +56,6 @@ public interface IBoardDao {
 	 * @param boardNo 게시판 번호
 	 * @return 해당 게시판이 존재하면 true, 존재하지 않으면 false
 	 */
-	public boolean checkBoard(String boardNo);
+	public boolean checkBoard(int boardNo);
 
 }

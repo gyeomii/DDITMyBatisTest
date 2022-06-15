@@ -8,17 +8,17 @@ package board.vo;
  * </p>
  */
 public class BoardVO {
-	private String boardNo; // board_no number not null, -- 번호(자동증가)
+	private int boardNo; // board_no number not null, -- 번호(자동증가)
 	private String boardTitle; // board_title varchar2(100) not null, -- 제목
 	private String boardWriter; // board_writer varchar2(50) not null, -- 작성자
 	private String boardDate; // board_date date not null, -- 작성날짜
 	private String boardContent; // board_content clob, -- 내용
 
-	public String getBoardNo() {
+	public int getBoardNo() {
 		return boardNo;
 	}
 
-	public void setBoardNo(String boardNo) {
+	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
 

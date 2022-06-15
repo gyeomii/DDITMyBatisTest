@@ -28,7 +28,7 @@ public interface IBoardService {
 	 * @param boardNo 삭제할 게시글NO
 	 * @return 작업성공 : 1, 작업 실패 : 0
 	 */
-	public int deletePost(String boardNo);
+	public int deletePost(int boardNo);
 	
 	/**
 	 * 게시글 정보를 수정하는 메서드
@@ -50,6 +50,6 @@ public interface IBoardService {
 	 * @param boardNo 게시글NO
 	 * @return 해당 게시글 NO가 존재하면 true, 존재하지 않으면 false
 	 */
-	public boolean checkBoard(String boardNo);
+	public boolean checkBoard(int boardNo);
 
 }

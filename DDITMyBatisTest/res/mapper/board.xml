@@ -3,16 +3,19 @@
 <mapper namespace="board">
 	<!-- Insert 연습 -->
 	<insert id="writePost" parameterType="boardVO">
+	    <selectKey order="BEFORE" keyProperty="boardNo" resultType="int">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO JDBC_BOARD(BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CONTENT)
-		VALUES(BOARD_SEQ.NEXTVAL, #{boardTitle}, #{boardWriter}, SYSDATE, #{boardContent})
+		VALUES(#{boardNo}, #{boardTitle}, #{boardWriter}, SYSDATE, #{boardContent})
 	</insert>
 	<!-- Update 연습 -->
 	<update id="editPost" parameterType="boardVO">
 		UPDATE JDBC_BOARD
-		SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent} WHERE BOARD_NO = #{boardNo}
+		SET BOARD_DATE = SYSDATE, BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent} WHERE BOARD_NO = #{boardNo}
 	</update>
 	<!-- Delete 연습 -->
-	<delete id="deletePost" parameterType="String">
+	<delete id="deletePost" parameterType="int">
 		DELETE FROM JDBC_BOARD WHERE BOARD_NO = #{boardNo}
 	</delete>
 	<!-- Select 연습 -->
