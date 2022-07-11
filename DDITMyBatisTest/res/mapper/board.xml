@@ -27,7 +27,7 @@
 		<result column="BOARD_CONTENT" property="boardContent"/>
 	</resultMap>
 	
-	<select id="getPost" resultMap="boardMap">
+	<select id="getPost" resultMap="boardMap" resultType="boardVO">
 		SELECT BOARD_NO
 			 , BOARD_TITLE
 			 , BOARD_WRITER
@@ -37,7 +37,7 @@
 	    WHERE BOARD_NO = #{boardNo}
 	</select>
 	
-	<select id="getPostAll" resultMap="boardMap">
+	<select id="getPostAll" resultMap="boardMap" resultType="boardVO">
 		SELECT BOARD_NO
 			 , BOARD_TITLE
 			 , BOARD_WRITER
